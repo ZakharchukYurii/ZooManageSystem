@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using AutoMapper;
 using ZMS.BLL.Abstracts;
 using ZMS.BLL.DTO;
@@ -23,7 +22,17 @@ namespace ZMS.BLL.Services
 
         public AnimalDTO Get(int id)
         {
+            if (id < 1)
+            {
+                throw new ValidationException("Id is not valid");
+            }
+
             var result = _database.Animals.Get(id);
+
+            if(result == null)
+            {
+                throw new NullDataException("Item not found");
+            }
 
             return _mapper.Map<AnimalDTO>(result);
         }
@@ -31,6 +40,11 @@ namespace ZMS.BLL.Services
         public IEnumerable<AnimalDTO> GetAll()
         {
             var result = _database.Animals.GetAll();
+
+            if (result == null)
+            {
+                throw new NullDataException("Items does not exist");
+            }
 
             return _mapper.Map<IEnumerable<AnimalDTO>>(result);
         }
@@ -48,23 +62,43 @@ namespace ZMS.BLL.Services
             _database.Save();
         }
 
-
         public void Update(int id, AnimalDTO item)
         {
             if (id < 1)
             {
-                throw new Exception("Id is not valid");
+                throw new ValidationException("Id is not valid");
             }
 
             var itemToUpdate = _database.Animals.Get(id);
 
+            if (itemToUpdate == null)
+            {
+                throw new NullDataException("Item does not exist");
+            }
+
             itemToUpdate.Name = item.Name;
             itemToUpdate.Age = item.Age;
+            itemToUpdate.Food = item.Food;
 
-            if (item.Food.FirstOrDefault() != null)
+            _database.Animals.Update(itemToUpdate);
+            _database.Save();
+        }
+
+        public void Feed(int id, string food)
+        {
+            if (id < 1)
             {
-                (itemToUpdate.Food as List<string>).AddRange(item.Food);
+                throw new ValidationException("Id is not valid");
             }
+
+            var itemToUpdate = _database.Animals.Get(id);
+
+            if (itemToUpdate == null)
+            {
+                throw new NullDataException("Item does not exist");
+            }
+
+            (itemToUpdate.Food as List<string>).Add(food);
 
             _database.Animals.Update(itemToUpdate);
             _database.Save();
