@@ -14,5 +14,11 @@ namespace ZMS.BLL.DTO
         public AnimalClassDTO Class { get; set; }
 
         public EmployeeDTO Caretaker { get; set; }
+        public IEnumerable<string> Food { get; set; }
+
+        public AnimalDTO()
+        {
+            Food = new List<string>();
+        }
     }
 }
