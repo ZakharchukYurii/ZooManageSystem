@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ZMS.BLL.DTO
 {
-    class EmployeeDTO
+    public class EmployeeDTO
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
