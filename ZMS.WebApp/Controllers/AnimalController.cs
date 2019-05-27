@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using ZMS.BLL.Abstracts;
+using ZMS.BLL.DTO;
+using ZMS.BLL.Infrastructure;
 
 namespace ZMS.WebApp.Controllers
 {
@@ -18,18 +17,66 @@ namespace ZMS.WebApp.Controllers
             _service = service;
         }
 
+        [HttpGet("{id}")]
+        public ActionResult<AnimalDTO> Get(int id)
+        {
+            try
+            {
+                return Ok(_service.Get(id));
+            }
+            catch (NullDataException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (ValidationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<IEnumerable<AnimalDTO>> Get()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                return Ok(_service.GetAll());
+            }
+            catch (NullDataException ex)
+            {
+                return NotFound(ex.Message);
+            }
         }
 
-        [HttpPut]
-        public IActionResult Feed()
+        [HttpPost]
+        public ActionResult AddNewAnimal([FromBody] AnimalDTO animal)
         {
-            _service.Update(id, item);
-            return Ok();
+            try
+            {
+                _service.AddNew(animal);
+                return Ok();
+            }
+            catch (ValidationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
+        [HttpPut("{id}")]
+        public ActionResult Feed(int id, [FromBody] string food)
+        {
+            try
+            {
+                _service.Feed(id, food);
+                return Ok();
+            }
+            catch (ValidationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (NullDataException ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
     }
 }
