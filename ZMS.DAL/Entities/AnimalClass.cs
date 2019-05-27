@@ -15,6 +15,5 @@ namespace ZMS.DAL.Entities
         {
             Animals = new List<Animal>();
         }
-
     }
 }

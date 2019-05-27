@@ -17,10 +17,4 @@ namespace ZMS.DAL.Entities
             CareAnimals = new List<Animal>();
         }
     }
-
-    public enum Sex
-    {
-        Male,
-        Female
-    }
 }
