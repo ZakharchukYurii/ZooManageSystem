@@ -98,7 +98,7 @@ namespace ZMS.BLL.Services
                 throw new NullDataException("Item does not exist");
             }
 
-            (itemToUpdate.Food as List<string>).Add(food);
+            itemToUpdate.Food = food;
 
             _database.Animals.Update(itemToUpdate);
             _database.Save();

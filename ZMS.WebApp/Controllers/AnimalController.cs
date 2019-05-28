@@ -10,7 +10,7 @@ namespace ZMS.WebApp.Controllers
     [ApiController]
     public class AnimalController : ControllerBase
     {
-        IAnimalService _service;
+        private IAnimalService _service;
 
         public AnimalController(IAnimalService service)
         {

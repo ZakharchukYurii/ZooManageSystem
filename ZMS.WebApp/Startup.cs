@@ -33,9 +33,9 @@ namespace ZMS.WebApp
             // Attach swagger
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("GameStore", new Info() { Title = "Core Api", Description = "Swager Core API" });
-                var xmlpath = AppDomain.CurrentDomain.BaseDirectory + @"AdminSite.xml";
-                c.IncludeXmlComments(xmlpath);
+                c.SwaggerDoc("ZMS", new Info() { Title = "Core Api", Description = "Swager Core API" });
+                //var xmlpath = AppDomain.CurrentDomain.BaseDirectory + @"AdminSite.xml";
+                //c.IncludeXmlComments(xmlpath);
             });
 
             // Find relative path to DB from appsettings.json
@@ -58,11 +58,6 @@ namespace ZMS.WebApp
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
             }
 
             app.UseHttpsRedirection();
