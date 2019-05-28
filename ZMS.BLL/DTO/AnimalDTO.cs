@@ -10,15 +10,10 @@ namespace ZMS.BLL.DTO
         public string Name { get; set; }
         public int Age { get; set; }
         public Sex Sex { get; set; }
+        public string Food { get; set; }
 
         public AnimalClassDTO Class { get; set; }
 
         public EmployeeDTO Caretaker { get; set; }
-        public IEnumerable<string> Food { get; set; }
-
-        public AnimalDTO()
-        {
-            Food = new List<string>();
-        }
     }
 }
