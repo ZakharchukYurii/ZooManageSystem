@@ -33,7 +33,7 @@ namespace ZMS.WebApp
             // Attach swagger
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("ZMS", new Info() { Title = "Core Api", Description = "Swager Core API" });
+                c.SwaggerDoc("ZMS", new Info() { Title = "Core Api", Description = "Swagger Core API" });
                 //var xmlpath = AppDomain.CurrentDomain.BaseDirectory + @"AdminSite.xml";
                 //c.IncludeXmlComments(xmlpath);
             });
@@ -61,13 +61,12 @@ namespace ZMS.WebApp
             }
 
             app.UseHttpsRedirection();
-            app.UseMvc();
-
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/ZMS/swagger.json", "Core Api");
-            });
+            app.UseMvc()
+                .UseSwagger()
+                .UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/ZMS/swagger.json", "Core Api");
+                });
         }
     }
 }

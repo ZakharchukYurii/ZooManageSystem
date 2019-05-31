@@ -31,7 +31,8 @@ namespace ZMS.DAL.Context
                 Age = 3,
                 Sex = Sex.Male,
                 ClassId = 1,
-                CaretakerId = 1
+                CaretakerId = 1,
+                IsHungry = true
             };
 
             var lona = new Animal()
@@ -41,7 +42,8 @@ namespace ZMS.DAL.Context
                 Age = 3,
                 Sex = Sex.Female,
                 ClassId = 1,
-                CaretakerId = 1
+                CaretakerId = 1,
+                IsHungry = true
             };
 
             modelBuilder.Entity<AnimalClass>().HasData(owls);

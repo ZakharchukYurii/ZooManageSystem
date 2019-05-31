@@ -66,7 +66,24 @@ namespace ZMS.WebApp.Controllers
         {
             try
             {
-                _service.Feed(id, food);
+                _service.Feed(id);
+                return Ok();
+            }
+            catch (ValidationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (NullDataException ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+
+        public ActionResult AttachCaretaker(int animalId, int caretakerId)
+        {
+            try
+            {
+                _service.AttachCaretaker(animalId, caretakerId);
                 return Ok();
             }
             catch (ValidationException ex)

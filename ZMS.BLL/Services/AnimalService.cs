@@ -53,7 +53,7 @@ namespace ZMS.BLL.Services
         {
             if (item == null)
             {
-                throw new ValidationException("Item is undefined");
+                throw new ValidationException("Animal is undefined");
             }
 
             var newItem = _mapper.Map<Animal>(item);
@@ -73,34 +73,88 @@ namespace ZMS.BLL.Services
 
             if (itemToUpdate == null)
             {
-                throw new NullDataException("Item does not exist");
+                throw new NullDataException("Animal does not exist");
             }
 
             itemToUpdate.Name = item.Name;
-            itemToUpdate.Age = item.Age;
-            itemToUpdate.Food = item.Food;
+            itemToUpdate.IsHungry = item.IsHungry;
+
+            if (item.Age >= 0)
+            {
+                itemToUpdate.Age = item.Age;
+            }
+
+            if (item.Class != null)
+            {
+                if (item.Class.Id < 1)
+                {
+                    throw new ValidationException("AnimalClassId is not valid");
+                }
+
+                var animalClass = _database.AnimalClasses.Get(item.Class.Id);
+
+                if (animalClass != null)
+                {
+                    itemToUpdate.ClassId = item.Class.Id;
+                }
+                else
+                {
+                    throw new NullDataException("AnimalClass does not exist");
+                }
+            }
 
             _database.Animals.Update(itemToUpdate);
             _database.Save();
         }
 
-        public void Feed(int id, string food)
+        public void Feed(int id)
         {
             if (id < 1)
             {
                 throw new ValidationException("Id is not valid");
             }
 
-            var itemToUpdate = _database.Animals.Get(id);
+            var animal = _database.Animals.Get(id);
 
-            if (itemToUpdate == null)
+            if (animal == null)
             {
-                throw new NullDataException("Item does not exist");
+                throw new NullDataException("Animal does not exist");
             }
 
-            itemToUpdate.Food = food;
+            animal.IsHungry = false;
 
-            _database.Animals.Update(itemToUpdate);
+            _database.Animals.Update(animal);
+            _database.Save();
+        }
+
+        public void AttachCaretaker(int animalId, int caretakerId)
+        {
+            if (animalId < 1)
+            {
+                throw new ValidationException("AnimalId is not valid");
+            }
+            if (caretakerId < 1)
+            {
+                throw new ValidationException("CaretakerId is not valid");
+            }
+
+            var animal = _database.Animals.Get(animalId);
+
+            if (animal == null)
+            {
+                throw new NullDataException("Animal does not exist");
+            }
+
+            var caretaker = _database.Employees.Get(caretakerId);
+
+            if (caretaker == null)
+            {
+                throw new NullDataException("Caretaker does not exist");
+            }
+
+            animal.CaretakerId = caretaker.Id;
+
+            _database.Animals.Update(animal);
             _database.Save();
         }
 

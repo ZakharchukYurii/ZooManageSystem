@@ -8,9 +8,16 @@ namespace ZMS.BLL.DTO
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int Age { get; set; }
+
+        private int _age;
+        public int Age
+        {
+            get => _age;
+            set => _age = value >= 0 ? value : 0;
+        }
+
         public Sex Sex { get; set; }
-        public string Food { get; set; }
+        public bool IsHungry { get; set; }
 
         public AnimalClassDTO Class { get; set; }
 

@@ -10,6 +10,7 @@ namespace ZMS.BLL.Abstracts
         IEnumerable<AnimalDTO> GetAll();
         void AddNew(AnimalDTO item);
         void Update(int id, AnimalDTO item);
-        void Feed(int id, string food);
+        void Feed(int id);
+        void AttachCaretaker(int animalId, int caretakerId);
     }
 }
