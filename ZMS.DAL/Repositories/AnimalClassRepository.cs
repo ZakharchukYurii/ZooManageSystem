@@ -5,6 +5,7 @@ using System.Linq;
 using ZMS.DAL.Abstracts;
 using ZMS.DAL.Context;
 using ZMS.DAL.Entities;
+using ZMS.Shared.Exceptions;
 
 namespace ZMS.DAL.Repositories
 {
@@ -34,12 +35,30 @@ namespace ZMS.DAL.Repositories
 
         public IEnumerable<AnimalClass> Find(Func<AnimalClass, bool> predicate)
         {
-            return _dataBase.AnimalClasses.Where(predicate).ToList();
+            var result = _dataBase.AnimalClasses.Where(predicate).ToList();
+
+            if(result != null)
+            {
+                return result;
+            }
+            else
+            {
+                throw new NullDataException();
+            }
         }
 
         public AnimalClass Get(int id)
         {
-            return _dataBase.AnimalClasses.Find(id);
+            var result = _dataBase.AnimalClasses.Find(id);
+
+            if(result != null)
+            {
+                return result;
+            }
+            else
+            {
+                throw new NullDataException();
+            }
         }
 
         public IEnumerable<AnimalClass> GetAll()
