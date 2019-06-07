@@ -19,7 +19,7 @@ namespace ZMS.WebApp.Controllers
         }
 
         [HttpGet("{id}")]
-        [ExceptionAtribute]
+        [ExceptionFilter]
         public ActionResult<AnimalDTO> Get(int id)
         {
             if(id < 1)
@@ -35,10 +35,10 @@ namespace ZMS.WebApp.Controllers
         }
 
         [HttpPost]
-        [ExceptionAtribute]
+        [ExceptionFilter]
         public ActionResult AddNewAnimal([FromBody] AnimalDTO animal)
         {
-            if(!ValidationData.IsValidate(animal))
+            if(!new ValidationData().IsValidate(animal))
                 return BadRequest("Data is not valid");
 
             _service.AddNew(animal);
@@ -46,7 +46,7 @@ namespace ZMS.WebApp.Controllers
         }
 
         [HttpPut("{id}")]
-        [ExceptionAtribute]
+        [ExceptionFilter]
         public ActionResult Feed(int id)
         {
             if(id < 1)
@@ -57,7 +57,7 @@ namespace ZMS.WebApp.Controllers
         }
 
         [HttpPut("{animalId}/{caretakerId}")]
-        [ExceptionAtribute]
+        [ExceptionFilter]
         public ActionResult AttachCaretaker(int animalId, int caretakerId)
         {
             if(animalId < 1 || caretakerId < 1)

@@ -1,19 +1,16 @@
-﻿- exception filters +
-- DI +
--- _mapper = new MapperConfiguration(cfg => cfg.CreateMap<AnimalDTO, Animal>().ReverseMap()).CreateMapper();
-- c# 8.0 + nullable ref types +
-- ```item.Age >= 0``` - validation of Amimal DTO
+﻿read - UoW
 
-
-
-- 0 and NULL !!!
-
-
-read - UoW
-read - IQuerable vs IEnumerable
-
-
-TASK
+Tasks:
 - UI
 - Show All Names of Male Hungry Animals
 - Feed All animals
+- DI
+- c# 8.0 + nullable ref types +
+- is validate - move to Aminal DTO
+-- _mapper = new MapperConfiguration(cfg => cfg.CreateMap<AnimalDTO, Animal>().ReverseMap()).CreateMapper();
+
+Theory:
+read - IQuerable vs IEnumerable
+
+Common things to track during development:
+- 0 and NULL !!!

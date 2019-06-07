@@ -2,14 +2,14 @@
 
 namespace ZMS.WebApp.Infrastructure
 {
-    public static class ValidationData
+    public class ValidationData
     {
-        public static bool IsValidate(AnimalDTO animal)
+        public bool IsValidate(AnimalDTO animal)
         {
-            if(animal == null)
+            if (animal == null)
                 return false;
 
-            if(animal.Age < 0 ||
+            if (animal.Age < 0 ||
                animal.Age == null ||
                animal.Name == null ||
                animal.Class == null)
