@@ -5,7 +5,7 @@ namespace ZMS.DAL
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private DataContext _dataBase;
+        private readonly DataContext _dataBase;
 
         public IAnimalRepository Animals { get; }
         public IAnimalClassRepository AnimalClasses { get; }

@@ -10,8 +10,8 @@ namespace ZMS.BLL.Services
 {
     public class AnimalService : IAnimalService
     {
-        private IUnitOfWork _database;
-        private IMapper _mapper;
+        private readonly IUnitOfWork _database;
+        private readonly IMapper _mapper;
 
         public AnimalService(IUnitOfWork uow, IMapper mapper)
         {

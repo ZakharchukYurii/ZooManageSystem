@@ -11,7 +11,7 @@ namespace ZMS.DAL.Repositories
 {
     public class EmployeeRepository : IEmployeeRepository
     {
-        private DataContext _dataBase;
+        private readonly DataContext _dataBase;
 
         public EmployeeRepository(DataContext dataContext)
         {

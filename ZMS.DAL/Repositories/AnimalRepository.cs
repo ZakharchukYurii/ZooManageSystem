@@ -11,7 +11,7 @@ namespace ZMS.DAL.Repositories
 {
     public class AnimalRepository : IAnimalRepository
     {
-        private DataContext _dataBase;
+        private readonly DataContext _dataBase;
 
         public AnimalRepository(DataContext dataContext)
         {
