@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using ZMS.BLL.Abstracts;
 using ZMS.BLL.DTO;
-using ZMS.BLL.Infrastructure;
+using ZMS.WebApp.Infrastructure.Filters;
+using ZMS.WebApp.Infrastructure;
 
 namespace ZMS.WebApp.Controllers
 {
@@ -10,7 +11,7 @@ namespace ZMS.WebApp.Controllers
     [ApiController]
     public class AnimalController : ControllerBase
     {
-        private IAnimalService _service;
+        private readonly IAnimalService _service;
 
         public AnimalController(IAnimalService service)
         {
@@ -18,82 +19,52 @@ namespace ZMS.WebApp.Controllers
         }
 
         [HttpGet("{id}")]
+        [ExceptionAtribute]
         public ActionResult<AnimalDTO> Get(int id)
         {
-            try
-            {
-                return Ok(_service.Get(id));
-            }
-            catch (NullDataException ex)
-            {
-                return NotFound(ex.Message);
-            }
-            catch (ValidationException ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            if(id < 1)
+                return BadRequest("Id is not valid");
+
+            return Ok(_service.Get(id));
         }
 
         [HttpGet]
         public ActionResult<IEnumerable<AnimalDTO>> Get()
         {
-            try
-            {
-                return Ok(_service.GetAll());
-            }
-            catch (NullDataException ex)
-            {
-                return NotFound(ex.Message);
-            }
+            return Ok(_service.GetAll());
         }
 
         [HttpPost]
+        [ExceptionAtribute]
         public ActionResult AddNewAnimal([FromBody] AnimalDTO animal)
         {
-            try
-            {
-                _service.AddNew(animal);
-                return Ok();
-            }
-            catch (ValidationException ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            if(!ValidationData.IsValidate(animal))
+                return BadRequest("Data is not valid");
+
+            _service.AddNew(animal);
+            return Ok();
         }
 
         [HttpPut("{id}")]
-        public ActionResult Feed(int id, [FromBody] string food)
+        [ExceptionAtribute]
+        public ActionResult Feed(int id)
         {
-            try
-            {
-                _service.Feed(id);
-                return Ok();
-            }
-            catch (ValidationException ex)
-            {
-                return BadRequest(ex.Message);
-            }
-            catch (NullDataException ex)
-            {
-                return NotFound(ex.Message);
-            }
+            if(id < 1)
+                return BadRequest("Id is not valid");
+
+            _service.Feed(id);
+            return Ok();
         }
 
+        [HttpPut("{animalId}/{caretakerId}")]
+        [ExceptionAtribute]
         public ActionResult AttachCaretaker(int animalId, int caretakerId)
         {
-            try
-            {
-                _service.AttachCaretaker(animalId, caretakerId);
-                return Ok();
-            }
-            catch (ValidationException ex)
-            {
-                return BadRequest(ex.Message);
-            }
-            catch (NullDataException ex)
-            {
-                return NotFound(ex.Message);
-            }
+            if(animalId < 1 || caretakerId < 1)
+                return BadRequest("Id is not valid");
+
+            _service.AttachCaretaker(animalId, caretakerId);
+            return Ok();
         }
     }
 }

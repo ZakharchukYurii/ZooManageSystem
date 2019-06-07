@@ -5,9 +5,11 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZMS.DAL", "ZMS.DAL\ZMS.DAL.csproj", "{D84C7EB2-5E9D-4A03-AF29-32584A7E2751}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZMS.BLL", "ZMS.BLL\ZMS.BLL.csproj", "{B1FBCAC6-FCBB-458D-979B-47BCEF18C3F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZMS.BLL", "ZMS.BLL\ZMS.BLL.csproj", "{B1FBCAC6-FCBB-458D-979B-47BCEF18C3F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZMS.WebApp", "ZMS.WebApp\ZMS.WebApp.csproj", "{5A9A5BF3-D7FC-4E9B-AD3D-61089F5DF817}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZMS.WebApp", "ZMS.WebApp\ZMS.WebApp.csproj", "{5A9A5BF3-D7FC-4E9B-AD3D-61089F5DF817}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZMS.Shared", "ZMS.Shared\ZMS.Shared.csproj", "{ABAA662B-D65C-4F38-B531-57FCDA17469A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{5A9A5BF3-D7FC-4E9B-AD3D-61089F5DF817}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A9A5BF3-D7FC-4E9B-AD3D-61089F5DF817}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A9A5BF3-D7FC-4E9B-AD3D-61089F5DF817}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABAA662B-D65C-4F38-B531-57FCDA17469A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABAA662B-D65C-4F38-B531-57FCDA17469A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABAA662B-D65C-4F38-B531-57FCDA17469A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABAA662B-D65C-4F38-B531-57FCDA17469A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

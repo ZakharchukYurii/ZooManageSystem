@@ -1,7 +1,7 @@
-﻿- exception filters
-- DI
+﻿- exception filters +
+- DI +
 -- _mapper = new MapperConfiguration(cfg => cfg.CreateMap<AnimalDTO, Animal>().ReverseMap()).CreateMapper();
-- c# 8.0 + nullable ref types
+- c# 8.0 + nullable ref types +
 - ```item.Age >= 0``` - validation of Amimal DTO
 
 
