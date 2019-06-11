@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ZMS.DAL.Entities
+namespace ZMS.Models
 {
     public class AnimalClass
     {
@@ -14,6 +14,20 @@ namespace ZMS.DAL.Entities
         public AnimalClass()
         {
             Animals = new List<Animal>();
+        }
+
+        public bool IsValid()
+        {
+            if(Species == null ||
+               Family == null ||
+               Class == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using ZMS.BLL.Abstracts;
-using ZMS.BLL.DTO;
 using ZMS.WebApp.Infrastructure.Filters;
-using ZMS.WebApp.Infrastructure;
+using ZMS.Models;
 
 namespace ZMS.WebApp.Controllers
 {
@@ -20,7 +19,7 @@ namespace ZMS.WebApp.Controllers
 
         [HttpGet("{id}")]
         [ExceptionFilter]
-        public ActionResult<AnimalDTO> Get(int id)
+        public ActionResult<Animal> Get(int id)
         {
             if(id < 1)
                 return BadRequest("Id is not valid");
@@ -29,16 +28,16 @@ namespace ZMS.WebApp.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<AnimalDTO>> Get()
+        public ActionResult<IEnumerable<Animal>> Get()
         {
             return Ok(_service.GetAll());
         }
 
         [HttpPost]
         [ExceptionFilter]
-        public ActionResult AddNewAnimal([FromBody] AnimalDTO animal)
+        public ActionResult AddNewAnimal([FromBody] Animal animal)
         {
-            if(!new ValidationData().IsValidate(animal))
+            if(!animal.IsValid())
                 return BadRequest("Data is not valid");
 
             _service.AddNew(animal);

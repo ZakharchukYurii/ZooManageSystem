@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ZMS.DAL.Entities;
+using ZMS.Models;
 
 namespace ZMS.DAL.Context
 {
@@ -30,7 +30,7 @@ namespace ZMS.DAL.Context
                 Name = "Phil",
                 Age = 3,
                 Sex = Sex.Male,
-                ClassId = 1,
+                AnimalClassId = 1,
                 CaretakerId = 1,
                 IsHungry = true
             };
@@ -41,7 +41,7 @@ namespace ZMS.DAL.Context
                 Name = "Lona",
                 Age = 3,
                 Sex = Sex.Female,
-                ClassId = 1,
+                AnimalClassId = 1,
                 CaretakerId = 1,
                 IsHungry = true
             };

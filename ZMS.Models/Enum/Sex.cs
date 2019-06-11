@@ -1,4 +1,4 @@
-﻿namespace ZMS.BLL.DTO
+﻿namespace ZMS.Models
 {
     public enum Sex
     {

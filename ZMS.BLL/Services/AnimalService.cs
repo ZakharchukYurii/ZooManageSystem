@@ -1,43 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
-using AutoMapper;
 using ZMS.BLL.Abstracts;
-using ZMS.BLL.DTO;
 using ZMS.DAL.Abstracts;
-using ZMS.DAL.Entities;
+using ZMS.Models;
 
 namespace ZMS.BLL.Services
 {
     public class AnimalService : IAnimalService
     {
         private readonly IUnitOfWork _database;
-        private readonly IMapper _mapper;
 
-        public AnimalService(IUnitOfWork uow, IMapper mapper)
+        public AnimalService(IUnitOfWork uow)
         {
             _database = uow;
-            _mapper = new MapperConfiguration(cfg => cfg.CreateMap<AnimalDTO, Animal>().ReverseMap()).CreateMapper();
         }
 
-        public AnimalDTO Get(int id)
+        public Animal Get(int id)
         {
             var result = _database.Animals.Get(id);
 
-            return _mapper.Map<AnimalDTO>(result);
+            return result;
         }
 
-        public IEnumerable<AnimalDTO> GetAll()
+        public IEnumerable<Animal> GetAll()
         {
             var result = _database.Animals.GetAll();
 
-            return _mapper.Map<IEnumerable<AnimalDTO>>(result);
+            return result;
         }
 
-        public void AddNew(AnimalDTO item)
+        public void AddNew(Animal item)
         {
-            var newItem = _mapper.Map<Animal>(item);
-
-            _database.Animals.Create(newItem);
+            _database.Animals.Create(item);
             _database.Save();
         }
 
@@ -62,7 +56,7 @@ namespace ZMS.BLL.Services
             _database.Save();
         }
 
-        public IEnumerable<AnimalDTO> Filter(AnimalDTO animal)
+        public IEnumerable<Animal> Filter(Animal animal)
         {
             throw new NotImplementedException();
         }

@@ -1,4 +1,4 @@
-﻿using ZMS.DAL.Entities;
+﻿using ZMS.Models;
 
 namespace ZMS.DAL.Abstracts
 {

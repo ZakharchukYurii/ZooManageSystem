@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ZMS.DAL.Entities;
+using ZMS.Models;
 
 namespace ZMS.DAL.Context
 {
@@ -18,7 +18,7 @@ namespace ZMS.DAL.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Animal>()
-                .HasOne(a => a.Class)
+                .HasOne(a => a.AnimalClass)
                 .WithMany(a => a.Animals);
 
             modelBuilder.Entity<Animal>()
