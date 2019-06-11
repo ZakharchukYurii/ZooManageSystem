@@ -45,6 +45,16 @@ namespace ZMS.BLL.Services
             _database.Save();
         }
 
+        public void FeedAll()
+        {
+            var animals = _database.Animals.Find(a => a.IsHungry == true);
+
+            foreach(var animal in animals)
+            {
+                animal.IsHungry = false;
+            }
+        }
+
         public void AttachCaretaker(int animalId, int caretakerId)
         {
             var animal = _database.Animals.Get(animalId);

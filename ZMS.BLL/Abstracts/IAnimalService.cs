@@ -10,6 +10,7 @@ namespace ZMS.BLL.Abstracts
         IEnumerable<Animal> GetAll();
         void AddNew(Animal item);
         void Feed(int id);
+        void FeedAll();
         void AttachCaretaker(int animalId, int caretakerId);
         IEnumerable<Animal> Filter(Animal animal);
     }

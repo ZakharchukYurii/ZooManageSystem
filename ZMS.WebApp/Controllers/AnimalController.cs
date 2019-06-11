@@ -55,6 +55,14 @@ namespace ZMS.WebApp.Controllers
             return Ok();
         }
 
+        [HttpPut]
+        [ExceptionFilter]
+        public ActionResult FeedAllAnimals()
+        {
+            _service.FeedAll();
+            return Ok();
+        }
+
         [HttpPut("{animalId}/{caretakerId}")]
         [ExceptionFilter]
         public ActionResult AttachCaretaker(int animalId, int caretakerId)
