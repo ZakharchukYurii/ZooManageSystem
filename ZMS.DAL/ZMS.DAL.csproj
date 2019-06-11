@@ -10,8 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ZMS.Exceptions\ZMS.Exceptions.csproj" />
     <ProjectReference Include="..\ZMS.Models\ZMS.Models.csproj" />
-    <ProjectReference Include="..\ZMS.Shared\ZMS.Shared.csproj" />
   </ItemGroup>
 
 </Project>

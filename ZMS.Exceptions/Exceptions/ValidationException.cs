@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ZMS.Shared.Exceptions
+namespace ZMS.Exceptions
 {
     public class ValidationException : Exception
     {

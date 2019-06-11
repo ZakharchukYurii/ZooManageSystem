@@ -5,7 +5,7 @@ using System.Linq;
 using ZMS.DAL.Abstracts;
 using ZMS.DAL.Context;
 using ZMS.Models;
-using ZMS.Shared.Exceptions;
+using ZMS.Exceptions;
 
 namespace ZMS.DAL.Repositories
 {
