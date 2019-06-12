@@ -21,7 +21,7 @@ namespace ZMS.WebApp.Controllers
         [ExceptionFilter]
         public ActionResult<Animal> Get(int id)
         {
-            if(id < 1)
+            if (id < 1)
                 return BadRequest("Id is not valid");
 
             return Ok(_service.Get(id));
@@ -33,11 +33,17 @@ namespace ZMS.WebApp.Controllers
             return Ok(_service.GetAll());
         }
 
+        [HttpGet("{animalSex}/{isHungry}")]
+        public ActionResult<IEnumerable<Animal>> FilterBySexAndHungry(Sex animalSex, bool isHungry)
+        {
+            return Ok(_service.Filter(new Animal() { Filter = a => a.Sex == animalSex && a.IsHungry == isHungry }));
+        }
+
         [HttpPost]
         [ExceptionFilter]
         public ActionResult AddNewAnimal([FromBody] Animal animal)
         {
-            if(!animal.IsValid())
+            if (!animal.IsValid())
                 return BadRequest("Data is not valid");
 
             _service.AddNew(animal);
@@ -48,7 +54,7 @@ namespace ZMS.WebApp.Controllers
         [ExceptionFilter]
         public ActionResult Feed(int id)
         {
-            if(id < 1)
+            if (id < 1)
                 return BadRequest("Id is not valid");
 
             _service.Feed(id);
@@ -67,7 +73,7 @@ namespace ZMS.WebApp.Controllers
         [ExceptionFilter]
         public ActionResult AttachCaretaker(int animalId, int caretakerId)
         {
-            if(animalId < 1 || caretakerId < 1)
+            if (animalId < 1 || caretakerId < 1)
                 return BadRequest("Id is not valid");
 
             _service.AttachCaretaker(animalId, caretakerId);

@@ -27,7 +27,7 @@ namespace ZMS.DAL.Repositories
         {
             var animal = _dataBase.Animals.Find(id);
 
-            if(animal != null)
+            if (animal != null)
             {
                 _dataBase.Animals.Remove(animal);
             }
@@ -37,28 +37,20 @@ namespace ZMS.DAL.Repositories
         {
             var result = _dataBase.Animals.Where(predicate).ToList();
 
-            if(result != null)
-            {
-                return result;
-            }
-            else
-            {
+            if (result.Count < 1)
                 throw new NullDataException();
-            }
+
+            return result;
         }
 
         public Animal Get(int id)
         {
             var result = _dataBase.Animals.Find(id);
 
-            if(result != null)
-            {
-                return result;
-            }
-            else
-            {
+            if (result == null)
                 throw new NullDataException();
-            }
+
+            return result;
         }
 
         public IEnumerable<Animal> GetAll()

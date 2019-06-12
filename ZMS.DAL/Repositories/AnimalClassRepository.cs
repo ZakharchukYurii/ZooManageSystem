@@ -37,28 +37,20 @@ namespace ZMS.DAL.Repositories
         {
             var result = _dataBase.AnimalClasses.Where(predicate).ToList();
 
-            if(result != null)
-            {
-                return result;
-            }
-            else
-            {
+            if (result.Count < 1)
                 throw new NullDataException();
-            }
+
+            return result;
         }
 
         public AnimalClass Get(int id)
         {
             var result = _dataBase.AnimalClasses.Find(id);
 
-            if(result != null)
-            {
-                return result;
-            }
-            else
-            {
+            if (result == null)
                 throw new NullDataException();
-            }
+
+            return result;
         }
 
         public IEnumerable<AnimalClass> GetAll()

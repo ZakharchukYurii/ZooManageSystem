@@ -2,7 +2,7 @@
 - UI 
 - Show All Names of Male Hungry Animals
 + Feed All animals +
-- DI 
++? DI 
 - c# 8.0 + nullable ref types
 + is validate - move to Aminal DTO +
 ? _mapper = new MapperConfiguration(cfg => cfg.CreateMap<AnimalDTO, Animal>().ReverseMap()).CreateMapper();

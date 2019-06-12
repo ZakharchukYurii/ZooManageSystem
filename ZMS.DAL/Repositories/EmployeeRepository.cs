@@ -37,28 +37,20 @@ namespace ZMS.DAL.Repositories
         {
             var result = _dataBase.Employees.Where(predicate).ToList();
 
-            if(result != null)
-            {
-                return result;
-            }
-            else
-            {
+            if (result.Count < 1)
                 throw new NullDataException();
-            }
+
+            return result;
         }
 
         public Employee Get(int id)
         {
             var result = _dataBase.Employees.Find(id);
 
-            if(result != null)
-            {
-                return result;
-            }
-            else
-            {
+            if (result == null)
                 throw new NullDataException();
-            }
+
+            return result;
         }
 
         public IEnumerable<Employee> GetAll()

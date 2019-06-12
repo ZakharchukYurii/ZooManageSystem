@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using ZMS.BLL.Abstracts;
 using ZMS.DAL.Abstracts;
 using ZMS.Models;
@@ -17,16 +16,12 @@ namespace ZMS.BLL.Services
 
         public Animal Get(int id)
         {
-            var result = _database.Animals.Get(id);
-
-            return result;
+            return _database.Animals.Get(id);
         }
 
         public IEnumerable<Animal> GetAll()
         {
-            var result = _database.Animals.GetAll();
-
-            return result;
+            return _database.Animals.GetAll();
         }
 
         public void AddNew(Animal item)
@@ -52,7 +47,10 @@ namespace ZMS.BLL.Services
             foreach(var animal in animals)
             {
                 animal.IsHungry = false;
+                _database.Animals.Update(animal);
             }
+
+            _database.Save();
         }
 
         public void AttachCaretaker(int animalId, int caretakerId)
@@ -68,7 +66,7 @@ namespace ZMS.BLL.Services
 
         public IEnumerable<Animal> Filter(Animal animal)
         {
-            throw new NotImplementedException();
+            return _database.Animals.Find(animal.Filter);
         }
 
         public void Dispose()
