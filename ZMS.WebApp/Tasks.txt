@@ -1,6 +1,6 @@
 ﻿Tasks:
-- UI 
-- Show All Names of Male Hungry Animals
++- UI 
++ Show All Names of Male Hungry Animals
 + Feed All animals +
 +? DI 
 - c# 8.0 + nullable ref types

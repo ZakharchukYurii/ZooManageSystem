@@ -3,7 +3,7 @@ using ZMS.Models;
 
 namespace ZMS.DAL.Context
 {
-    public class DataContext : DbContext
+    public sealed class DataContext : DbContext
     {
         public DbSet<Animal> Animals { get; set; }
         public DbSet<AnimalClass> AnimalClasses { get; set; }
@@ -12,7 +12,9 @@ namespace ZMS.DAL.Context
         public DataContext(DbContextOptions<DataContext> dbContextOptions)
             : base(dbContextOptions)
         {
+            //Database.EnsureDeleted();
             Database.EnsureCreated();
+            //Database.Migrate();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

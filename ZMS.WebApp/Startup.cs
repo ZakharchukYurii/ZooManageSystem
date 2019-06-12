@@ -40,7 +40,6 @@ namespace ZMS.WebApp
             string connectionString = configuration.GetConnectionString("ConnectionString");
 
             services.ConfigureServices(connectionString);
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,7 +50,9 @@ namespace ZMS.WebApp
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+
             app.UseMvc()
                 .UseSwagger()
                 .UseSwaggerUI(c =>
