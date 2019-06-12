@@ -12,8 +12,6 @@ namespace ZMS.Models
 
         public IEnumerable<Animal> Animals { get; set; }
 
-        public Func<AnimalClass, bool> Filter { get; set; }
-
         public AnimalClass()
         {
             Animals = new List<Animal>();

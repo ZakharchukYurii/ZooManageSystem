@@ -13,8 +13,6 @@ namespace ZMS.Models
 
         public IEnumerable<Animal> CareAnimals { get; set; }
 
-        public Func<Employee, bool> Filter { get; set; }
-
         public Employee()
         {
             CareAnimals = new List<Animal>();

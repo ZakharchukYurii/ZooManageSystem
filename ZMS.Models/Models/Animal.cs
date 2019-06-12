@@ -15,8 +15,6 @@ namespace ZMS.Models
         public int? CaretakerId { get; set; }
         public Employee Caretaker { get; set; }
 
-        public Func<Animal, bool> Filter { get; set; }
-
         public Animal()
         {
             IsHungry = true;
