@@ -25,7 +25,7 @@ namespace ZMS.Models
             if (Age < 0 ||
                Age == null ||
                Name == null ||
-               AnimalClass == null)
+               AnimalClassId == null)
             {
                 return false;
             }

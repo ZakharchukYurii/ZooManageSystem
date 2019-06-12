@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Swashbuckle.AspNetCore.Swagger;
 using ZMS.WebApplication.Infrastructure;
 
 namespace ZMS.WebApplication
@@ -34,12 +35,12 @@ namespace ZMS.WebApplication
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-           
+
             // Attach swagger
-            //services.AddSwaggerGen(c =>
-            //{
-            //    c.SwaggerDoc("ZMS", new Info() { Title = "Core Api", Description = "Swagger Core API" });
-            //});
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("ZMS", new Info() { Title = "Core Api", Description = "Swagger Core API" });
+            });
 
             // Find relative path to DB from appsettings.json
             string projectPath = $"{Directory.GetCurrentDirectory()}\\Properties";
@@ -72,14 +73,14 @@ namespace ZMS.WebApplication
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            app.UseMvc();
+            //app.UseMvc();
 
-            //app.UseMvc()
-            //    .UseSwagger()
-            //    .UseSwaggerUI(c =>
-            //    {
-            //        c.SwaggerEndpoint("/swagger/ZMS/swagger.json", "Core Api");
-            //    });
+            app.UseMvc()
+                .UseSwagger()
+                .UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/ZMS/swagger.json", "Core Api");
+                });
         }
     }
 }

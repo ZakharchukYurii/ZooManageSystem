@@ -31,7 +31,7 @@
                 type: 'GET',
                 contentType: "application/json",
                 success: function (animals) {
-                    console.log("GetAnimals from Back is Successful");
+                    console.log("GetAnimals from BackEnd Successful");
                     WriteResponse(animals);
                 }
             });
@@ -44,7 +44,6 @@
             });
 
             $("table tbody").html(rows);
-            console.log(rows);
         }
 
         var row = function (animal) {
@@ -69,7 +68,7 @@
                 type: 'PUT',
                 contentType: "application/json",
                 success: function () {
-                    $.message("Success");
+                    console.log("Success");
                     GetAnimals();
                 }
             });
