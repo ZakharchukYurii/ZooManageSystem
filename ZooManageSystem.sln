@@ -1,17 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.421
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.452
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZMS.DAL", "ZMS.DAL\ZMS.DAL.csproj", "{D84C7EB2-5E9D-4A03-AF29-32584A7E2751}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZMS.BLL", "ZMS.BLL\ZMS.BLL.csproj", "{B1FBCAC6-FCBB-458D-979B-47BCEF18C3F6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZMS.WebApp", "ZMS.WebApp\ZMS.WebApp.csproj", "{5A9A5BF3-D7FC-4E9B-AD3D-61089F5DF817}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZMS.Models", "ZMS.Models\ZMS.Models.csproj", "{48CE53AE-B591-4616-82F5-28188853F09E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZMS.Models", "ZMS.Models\ZMS.Models.csproj", "{48CE53AE-B591-4616-82F5-28188853F09E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZMS.Exceptions", "ZMS.Exceptions\ZMS.Exceptions.csproj", "{6C65A5E6-3829-4B76-AF37-E9E28D4E8FC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZMS.Exceptions", "ZMS.Exceptions\ZMS.Exceptions.csproj", "{6C65A5E6-3829-4B76-AF37-E9E28D4E8FC7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZMS.WebApplication", "ZMS.WebApplication\ZMS.WebApplication.csproj", "{1B8569B3-613F-46AA-8B36-A80D0519A57C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,10 +27,6 @@ Global
 		{B1FBCAC6-FCBB-458D-979B-47BCEF18C3F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1FBCAC6-FCBB-458D-979B-47BCEF18C3F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1FBCAC6-FCBB-458D-979B-47BCEF18C3F6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5A9A5BF3-D7FC-4E9B-AD3D-61089F5DF817}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5A9A5BF3-D7FC-4E9B-AD3D-61089F5DF817}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5A9A5BF3-D7FC-4E9B-AD3D-61089F5DF817}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5A9A5BF3-D7FC-4E9B-AD3D-61089F5DF817}.Release|Any CPU.Build.0 = Release|Any CPU
 		{48CE53AE-B591-4616-82F5-28188853F09E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{48CE53AE-B591-4616-82F5-28188853F09E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48CE53AE-B591-4616-82F5-28188853F09E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{6C65A5E6-3829-4B76-AF37-E9E28D4E8FC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C65A5E6-3829-4B76-AF37-E9E28D4E8FC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C65A5E6-3829-4B76-AF37-E9E28D4E8FC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B8569B3-613F-46AA-8B36-A80D0519A57C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B8569B3-613F-46AA-8B36-A80D0519A57C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B8569B3-613F-46AA-8B36-A80D0519A57C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B8569B3-613F-46AA-8B36-A80D0519A57C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
