@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace ZMS.Models
 {
@@ -11,6 +12,8 @@ namespace ZMS.Models
         public Sex Sex { get; set; }
 
         public IEnumerable<Animal> CareAnimals { get; set; }
+
+        public Func<Employee, bool> Filter { get; set; }
 
         public Employee()
         {

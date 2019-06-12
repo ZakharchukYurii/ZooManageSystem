@@ -1,4 +1,6 @@
-﻿namespace ZMS.Models
+﻿using System;
+
+namespace ZMS.Models
 {
     public class Animal
     {
@@ -13,6 +15,8 @@
         public int? CaretakerId { get; set; }
         public Employee Caretaker { get; set; }
 
+        public Func<Animal, bool> Filter { get; set; }
+
         public Animal()
         {
             IsHungry = true;
@@ -20,7 +24,7 @@
 
         public bool IsValid()
         {
-            if(Age < 0 ||
+            if (Age < 0 ||
                Age == null ||
                Name == null ||
                AnimalClass == null)
