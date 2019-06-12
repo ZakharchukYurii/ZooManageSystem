@@ -18,3 +18,7 @@ Common things to track during development:
  - report should be shown on ui
  - put request with params
  - mouve di dependency to dal and bll
+
+ task for friday
+ - crm - basic workflow
+ - crm processes
