@@ -12,6 +12,6 @@ namespace ZMS.BLL.Abstracts
         void Feed(int id);
         void FeedAll();
         void AttachCaretaker(int animalId, int caretakerId);
-        IEnumerable<Animal> Filter(Animal animal);
+        IEnumerable<Animal> Filter(Func<Animal,bool> filter);
     }
 }

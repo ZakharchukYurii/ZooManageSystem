@@ -36,7 +36,7 @@ namespace ZMS.WebApp.Controllers
         [HttpGet("{animalSex}/{isHungry}")]
         public ActionResult<IEnumerable<Animal>> FilterBySexAndHungry(Sex animalSex, bool isHungry)
         {
-            return Ok(_service.Filter(new Animal() { Filter = a => a.Sex == animalSex && a.IsHungry == isHungry }));
+            return Ok(_service.Filter(a => a.Sex == animalSex && a.IsHungry == isHungry));
         }
 
         [HttpPost]
