@@ -1,0 +1,20 @@
+﻿Tasks:
++- UI 
++ Show All Names of Male Hungry Animals
++ Feed All animals +
++? DI 
+- c# 8.0 + nullable ref types
++ is validate - move to Aminal DTO +
+? _mapper = new MapperConfiguration(cfg => cfg.CreateMap<AnimalDTO, Animal>().ReverseMap()).CreateMapper();
+
+Theory:
++ read - IQuerable vs IEnumerable
++ read - UoW 
+
+Common things to track during development:
+- 0 and NULL !!!
+
+ - linq.expressions - how to work
+ - report should be shown on ui
+ - put request with params
+ - mouve di dependency to dal and bll
