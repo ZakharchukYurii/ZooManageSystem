@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using ZMS.BLL.Abstracts;
 using ZMS.DAL.Abstracts;
 using ZMS.Models;
@@ -65,7 +66,7 @@ namespace ZMS.BLL.Services
             _database.Save();
         }
 
-        public IEnumerable<Animal> Filter(Func<Animal, bool> filter)
+        public IEnumerable<Animal> Filter(Expression<Func<Animal, bool>> filter)
         {
             return _database.Animals.Find(filter);
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using ZMS.Models;
 
 namespace ZMS.BLL.Abstracts
@@ -12,6 +13,6 @@ namespace ZMS.BLL.Abstracts
         void Feed(int id);
         void FeedAll();
         void AttachCaretaker(int animalId, int caretakerId);
-        IEnumerable<Animal> Filter(Func<Animal,bool> filter);
+        IEnumerable<Animal> Filter(Expression<Func<Animal,bool>> filter);
     }
 }

@@ -6,6 +6,7 @@ using ZMS.DAL.Abstracts;
 using ZMS.DAL.Context;
 using ZMS.Models;
 using ZMS.Exceptions;
+using System.Linq.Expressions;
 
 namespace ZMS.DAL.Repositories
 {
@@ -33,7 +34,7 @@ namespace ZMS.DAL.Repositories
             }
         }
 
-        public IEnumerable<Employee> Find(Func<Employee, bool> predicate)
+        public IEnumerable<Employee> Find(Expression<Func<Employee, bool>> predicate)
         {
             var result = _dataBase.Employees.Where(predicate).ToList();
 
