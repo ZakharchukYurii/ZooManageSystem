@@ -1,15 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ZMS.DAL.Abstracts;
+using Microsoft.EntityFrameworkCore;
+using ZMS.BLL.Abstracts;
 using ZMS.DAL.Context;
-using ZMS.Models;
 using ZMS.Exceptions;
+using ZMS.Models;
 
 namespace ZMS.DAL.Repositories
 {
-    public class EmployeeRepository : IEmployeeRepository
+    public class EmployeeRepository : IRepository<Employee>
     {
         private readonly DataContext _dataBase;
 

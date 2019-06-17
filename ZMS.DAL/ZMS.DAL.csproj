@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ZMS.BLL\ZMS.BLL.csproj" />
     <ProjectReference Include="..\ZMS.Exceptions\ZMS.Exceptions.csproj" />
     <ProjectReference Include="..\ZMS.Models\ZMS.Models.csproj" />
   </ItemGroup>

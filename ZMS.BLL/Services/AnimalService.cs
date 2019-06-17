@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using ZMS.BLL.Abstracts;
-using ZMS.DAL.Abstracts;
 using ZMS.Models;
+using ZMS.WebApplication.Abstracts;
 
 namespace ZMS.BLL.Services
 {

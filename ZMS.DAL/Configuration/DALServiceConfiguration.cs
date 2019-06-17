@@ -1,13 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using ZMS.DAL;
-using ZMS.DAL.Abstracts;
+using ZMS.BLL.Abstracts;
+using ZMS.BLL.Services;
 using ZMS.DAL.Context;
 using ZMS.DAL.Repositories;
+using ZMS.Models;
+using ZMS.WebApplication.Abstracts;
 
-namespace ZMS.BLL.Infrastructure
+namespace ZMS.DAL.Configuration
 {
-    public static class BLLServiceConfiguration
+    public static class DALServiceConfiguration
     {
         public static IServiceCollection Configure(this IServiceCollection services, string connectionString)
         {
@@ -19,9 +21,9 @@ namespace ZMS.BLL.Infrastructure
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             // Repositories
-            services.AddScoped<IAnimalRepository, AnimalRepository>();
-            services.AddScoped<IAnimalClassRepository, AnimalClassRepository>();
-            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<IRepository<Animal>, AnimalRepository>();
+            services.AddScoped<IRepository<AnimalClass>, AnimalClassRepository>();
+            services.AddScoped<IRepository<Employee>, EmployeeRepository>();
 
             return services;
         }

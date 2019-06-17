@@ -1,15 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ZMS.DAL.Abstracts;
+using Microsoft.EntityFrameworkCore;
+using ZMS.BLL.Abstracts;
 using ZMS.DAL.Context;
-using ZMS.Models;
 using ZMS.Exceptions;
+using ZMS.Models;
 
 namespace ZMS.DAL.Repositories
 {
-    public class AnimalClassRepository : IAnimalClassRepository
+    public class AnimalClassRepository : IRepository<AnimalClass>
     {
         private readonly DataContext _dataBase;
 

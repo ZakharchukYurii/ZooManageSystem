@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using ZMS.BLL.Abstracts;
 using ZMS.Models;
+using ZMS.WebApplication.Abstracts;
 using ZMS.WebApplication.Infrastructure.Filters;
 
 namespace ZMS.WebApplication.Controllers

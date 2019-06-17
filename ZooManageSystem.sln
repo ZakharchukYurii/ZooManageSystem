@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28803.452
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZMS.DAL", "ZMS.DAL\ZMS.DAL.csproj", "{D84C7EB2-5E9D-4A03-AF29-32584A7E2751}"
 EndProject
@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZMS.Models", "ZMS.Models\ZM
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZMS.Exceptions", "ZMS.Exceptions\ZMS.Exceptions.csproj", "{6C65A5E6-3829-4B76-AF37-E9E28D4E8FC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZMS.WebApplication", "ZMS.WebApplication\ZMS.WebApplication.csproj", "{1B8569B3-613F-46AA-8B36-A80D0519A57C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZMS.WebApplication", "ZMS.WebApplication\ZMS.WebApplication.csproj", "{1B8569B3-613F-46AA-8B36-A80D0519A57C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using ZMS.Models;
 
-namespace ZMS.BLL.Abstracts
+namespace ZMS.WebApplication.Abstracts
 {
     public interface IAnimalService : IDisposable
     {

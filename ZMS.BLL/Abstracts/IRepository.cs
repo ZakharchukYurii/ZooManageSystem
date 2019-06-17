@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ZMS.DAL.Abstracts
+namespace ZMS.BLL.Abstracts
 {
     public interface IRepository<T> where T : class
     {
