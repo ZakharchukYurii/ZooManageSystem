@@ -9,7 +9,7 @@ using ZMS.Exceptions;
 
 namespace ZMS.DAL.Repositories
 {
-    public class EmployeeRepository : IEmployeeRepository
+    public class EmployeeRepository : IRepository<Employee>
     {
         private readonly DataContext _dataBase;
 

@@ -1,12 +1,13 @@
 ﻿using System;
+using ZMS.Models;
 
 namespace ZMS.DAL.Abstracts
 {
     public interface IUnitOfWork : IDisposable
     {
-        IAnimalRepository Animals { get; }
-        IAnimalClassRepository AnimalClasses { get; }
-        IEmployeeRepository Employees { get; }
+        IRepository<Animal> Animals { get; }
+        IRepository<AnimalClass> AnimalClasses { get; }
+        IRepository<Employee> Employees { get; }
         void Save();
     }
 }

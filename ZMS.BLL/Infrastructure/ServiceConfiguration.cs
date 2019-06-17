@@ -4,10 +4,11 @@ using ZMS.DAL;
 using ZMS.DAL.Abstracts;
 using ZMS.DAL.Context;
 using ZMS.DAL.Repositories;
+using ZMS.Models;
 
 namespace ZMS.BLL.Infrastructure
 {
-    public static class BLLServiceConfiguration
+    public static class ServiceConfiguration
     {
         public static IServiceCollection Configure(this IServiceCollection services, string connectionString)
         {
@@ -19,9 +20,9 @@ namespace ZMS.BLL.Infrastructure
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             // Repositories
-            services.AddScoped<IAnimalRepository, AnimalRepository>();
-            services.AddScoped<IAnimalClassRepository, AnimalClassRepository>();
-            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<IRepository<Animal>, AnimalRepository>();
+            services.AddScoped<IRepository<AnimalClass>, AnimalClassRepository>();
+            services.AddScoped<IRepository<Employee>, EmployeeRepository>();
 
             return services;
         }
