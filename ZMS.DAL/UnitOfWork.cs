@@ -1,5 +1,6 @@
 ﻿using ZMS.DAL.Abstracts;
 using ZMS.DAL.Context;
+using ZMS.Models;
 
 namespace ZMS.DAL
 {
@@ -7,15 +8,15 @@ namespace ZMS.DAL
     {
         private readonly DataContext _dataBase;
 
-        public IAnimalRepository Animals { get; }
-        public IAnimalClassRepository AnimalClasses { get; }
-        public IEmployeeRepository Employees { get; }
+        public IRepository<Animal> Animals { get; }
+        public IRepository<AnimalClass> AnimalClasses { get; }
+        public IRepository<Employee> Employees { get; }
 
         public UnitOfWork(
             DataContext dataContext,
-            IAnimalRepository animalRepository,
-            IAnimalClassRepository animalClassRepository,
-            IEmployeeRepository employeeRepository)
+            IRepository<Animal> animalRepository,
+            IRepository<AnimalClass> animalClassRepository,
+            IRepository<Employee> employeeRepository)
         {
             _dataBase = dataContext;
             Animals = animalRepository;
