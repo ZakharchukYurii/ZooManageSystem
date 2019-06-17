@@ -6,6 +6,7 @@
 
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="~/js/Animals.js"></script>
 
 <h1>@ViewData["Title"]</h1>
 
@@ -21,70 +22,4 @@
         <thead><tr><th>Id</th><th>Name</th><th>Sex</th><th>Age</th><th>IsHungry</th></tr></thead>
         <tbody></tbody>
     </table>
-
-    <script>
-        // Show all animals
-        function GetAnimals() {
-            console.log("start func GetAnimals");
-            $.ajax({
-                url: '/api/animal',
-                type: 'GET',
-                contentType: "application/json",
-                success: function (animals) {
-                    console.log("GetAnimals from BackEnd Successful");
-                    WriteResponse(animals);
-                }
-            });
-        }
-
-        function WriteResponse(animals) {
-            var rows = "";
-            $.each(animals, function (index, animal) {
-                rows += row(animal);
-            });
-
-            $("table tbody").html(rows);
-        }
-
-        var row = function (animal) {
-            var strResult = "<tr data-rowid='" + animal.id + "'>" +
-                "<td>" + animal.id + "</td>" +
-                "<td>" + animal.name + "</td>";
-
-            if (animal.sex === 0) {
-                strResult += "<td>Male</td>";
-            } else {
-                strResult += "<td>Female</td>";
-            }
-
-            strResult += "<td>" + animal.age + "</td>" +
-                "<td>" + animal.isHungry + "</td></tr>";
-            return strResult;
-        }
-
-        function FeedAllAnimals() {
-            $.ajax({
-                url: '/api/animal',
-                type: 'PUT',
-                contentType: "application/json",
-                success: function () {
-                    console.log("Success");
-                    GetAnimals();
-                }
-            });
-        }
-
-        $("#getAll").click(function (event) {
-            event.preventDefault();
-            GetAnimals();
-        });
-
-        $("#feedAll").click(function (event) {
-            event.preventDefault();
-            FeedAllAnimals();
-        });
-
-        GetAnimals();
-
-    </script>
 </body>

@@ -3,7 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\js\Animals.js" />
+  </ItemGroup>
 
 
   <ItemGroup>

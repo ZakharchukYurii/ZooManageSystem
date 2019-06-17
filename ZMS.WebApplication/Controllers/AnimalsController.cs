@@ -6,13 +6,13 @@ using ZMS.WebApplication.Infrastructure.Filters;
 
 namespace ZMS.WebApplication.Controllers
 {
-    [Route("api/Animal")]
+    [Route("api/Animals")]
     [ApiController]
-    public class AnimalController : ControllerBase
+    public class AnimalsController : ControllerBase
     {
         private readonly IAnimalService _service;
 
-        public AnimalController(IAnimalService service)
+        public AnimalsController(IAnimalService service)
         {
             _service = service;
         }

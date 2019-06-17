@@ -14,10 +14,10 @@ Theory:
 Common things to track during development:
 - 0 and NULL !!!
 
- - linq.expressions - how to work
+ + linq.expressions - how to work
  - report should be shown on ui
  - put request with params
- - mouve di dependency to dal and bll
+ -? mouve di dependency to dal and bll
 
  task for friday
  - crm - basic workflow
