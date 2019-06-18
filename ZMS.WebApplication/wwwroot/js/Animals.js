@@ -1,17 +1,26 @@
-﻿$("#getAll").click(function (event) {
-    event.preventDefault();
-    GetAnimals();
+﻿$(document).ready(function () {
+
+	GetAnimals();
+
+    $("#getAll").click(function (event) {
+        event.preventDefault();
+        GetAnimals();
+    });
+
+    $("#feedAll").click(function (event) {
+        event.preventDefault();
+        FeedAllAnimals();
+    });
+
+    $("#addNew").click(function (event) {
+        event.preventDefault();
+        AddNewAnimals();
+    });
 });
 
-$("#feedAll").click(function (event) {
-    event.preventDefault();
-    FeedAllAnimals();
-});
-
-GetAnimals();
 
 function GetAnimals() {
-    console.log("start func GetAnimals");
+    console.log("Get all animals");
     $.ajax({
         url: '/api/animals',
         type: 'GET',
@@ -24,9 +33,32 @@ function GetAnimals() {
 }
 
 function FeedAllAnimals() {
+    console.log("Feed all animals");
     $.ajax({
         url: '/api/animals',
         type: 'PUT',
+        contentType: "application/json",
+        success: function () {
+            console.log("Success");
+            GetAnimals();
+        }
+    });
+}
+
+function AddNewAnimals() {
+    console.log("Add new animal");
+
+    var item = {
+        Name: $("#animalName").val(),
+        Sex: $("#animalSex").val(),
+        Age: $("#animalAge").val(),
+        AnimalClassId: 1
+    };
+
+    $.ajax({
+        url: '/api/animals',
+        type: 'POST',
+        data: JSON.stringify(item),
         contentType: "application/json",
         success: function () {
             console.log("Success");
@@ -50,7 +82,7 @@ var row = function (animal) {
         animalSex = "Female";
     }
 
-    var strResult = "<tr data-rowid='"+ animal.id + "'>" +
+    var strResult = "<tr data-rowid='" + animal.id + "'>" +
         "<td>" + animal.id + "</td>" +
         "<td>" + animal.name + "</td>" +
         "<td>" + animalSex + "</td>" +

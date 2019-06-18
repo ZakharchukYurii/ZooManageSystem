@@ -8,10 +8,17 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script src="~/js/Animals.js"></script>
 
-<h1>@ViewData["Title"]</h1>
-
 <body>
-    <h2>Animals list</h2>
+<h2>Animal</h2>
+<form name="AddForm">
+    <div class="panel-body">
+        <input id="animalName" value="Name"/>
+        <input id="animalSex" value="Sex"/>
+        <input id="animalAge" value="Age"/>
+        <button id="addNew" type="button" class="btn btn-sm btn-primary">Add new</button>
+    </div>
+</form>
+<h2>Animals list</h2>
     <form name="userForm">
         <div class="panel-body">
             <button id="getAll" type="button" class="btn btn-sm btn-primary">Show all animals</button>
