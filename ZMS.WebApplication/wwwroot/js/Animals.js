@@ -82,12 +82,12 @@ var row = function (animal) {
         animalSex = "Female";
     }
 
-    var strResult = "<tr data-rowid='" + animal.id + "'>" +
-        "<td>" + animal.id + "</td>" +
-        "<td>" + animal.name + "</td>" +
-        "<td>" + animalSex + "</td>" +
-        "<td>" + animal.age + "</td>" +
-        "<td>" + animal.isHungry + "</td></tr>";
+    var strResult = `<tr data-rowid='${animal.id}'> 
+        <td>${animal.id}</td>
+		<td>${animal.name}</td>
+        <td>${animalSex}</td>
+        <td>${animal.age}</td>
+        <td>${animal.isHungry}</td></tr>`;
 
     return strResult;
 }
